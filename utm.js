@@ -46,7 +46,8 @@ export function getZone(latitude, longitude) {
 }
 
 /*
- * getZone - Returns the zone of UTM, given a lat and long position.
+ * getHemisphere - Returns the hemisphere (north or south),
+ * given a lat and long position.
  */
 export function getHemisphere(latitude, longitude) {
   const utmCoords = latLonToUtm(latitude, longitude);

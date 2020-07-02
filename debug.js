@@ -1,5 +1,5 @@
 import {
-  getEasting, getNorthing, getZone, getHemisphere, getUtmStr
+  getEasting, getNorthing, getZone, getHemisphere, getUtmStr, getGZD
 } from './utm.js';
 
 const lat = 50.06045;
@@ -10,3 +10,4 @@ console.log(getHemisphere(lat, long)); // 1
 console.log(getEasting(lat, long)); // 5545898
 console.log(getNorthing(lat, long)); // 423586
 console.log(getUtmStr(lat, long)); // '34 N 423586 5545898'
+console.log(getGZD(lat, long)); // 34U

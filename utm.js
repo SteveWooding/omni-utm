@@ -1,4 +1,5 @@
 import { LatLon } from 'geodesy/utm.js';
+import { Utm } from 'geodesy/mgrs.js';
 
 /*
  * latLonToUtm - Converts lat/lon into UTM.
@@ -41,6 +42,21 @@ export function getZone(latitude, longitude) {
   const utmCoords = latLonToUtm(latitude, longitude);
   if (utmCoords) {
     return utmCoords.zone;
+  }
+  return NaN;
+}
+
+/*
+ * getGZD - Returns the grid zone designator (GZD), given a lat and long position.
+ */
+export function getGZD(latitude, longitude) {
+  const utmCoords = latLonToUtm(latitude, longitude);
+  if (utmCoords) {
+    const utmCoordsObj = new Utm(
+      utmCoords.zone, utmCoords.hemisphere, utmCoords.easting, utmCoords.northing
+    );
+    const mgrsRef = utmCoordsObj.toMgrs();
+    return mgrsRef.zone + mgrsRef.band;
   }
   return NaN;
 }

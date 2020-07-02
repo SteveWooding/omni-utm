@@ -1,5 +1,5 @@
 import {
-  getEasting, getNorthing, getZone, getHemisphere, getUtmStr
+  getEasting, getNorthing, getZone, getHemisphere, getUtmStr, getGZD
 } from './utm.js';
 
 /*
@@ -45,6 +45,13 @@ omni.define(
  */
 omni.define(
   'getZone', (latitude, longitude) => getZone(latitude, longitude)
+);
+
+/*
+ * getGZD - Returns the grid zone designator (GZD), given a lat and long position.
+ */
+omni.define(
+  'getGZD', (latitude, longitude) => getGZD(latitude, longitude)
 );
 
 /*

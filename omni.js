@@ -22,7 +22,17 @@ omni.onInit((ctx) => {
  */
 omni.onResult(['latitude', 'longitude'], (ctx, lat, long) => {
   const utmStr = getUtmStr(lat, long);
-  ctx.addHtml(`<center><b>${utmStr}</b></center>`, { afterVariable: 'northing' });
+  const gzd = getGZD(lat, long);
+
+  ctx.addHtml(
+    `<center>UTM coordinate: <b>${utmStr}</b></center>`,
+    { afterVariable: 'northing' }
+  );
+  ctx.addHtml(
+    `<center>Grid Zone Designator (GZD): <b>${gzd}</b></center>`,
+    { afterVariable: 'northing' }
+  );
+
 });
 
 /*

@@ -21,7 +21,7 @@ export function getNorthing(latitude, longitude) {
   if (utmCoords) {
     return Math.round(utmCoords.northing);
   }
-  return NaN;
+  return undefined;
 }
 
 /*
@@ -32,7 +32,7 @@ export function getEasting(latitude, longitude) {
   if (utmCoords) {
     return Math.round(utmCoords.easting);
   }
-  return NaN;
+  return undefined;
 }
 
 /*
@@ -43,7 +43,7 @@ export function getZone(latitude, longitude) {
   if (utmCoords) {
     return utmCoords.zone;
   }
-  return NaN;
+  return undefined;
 }
 
 /*
@@ -58,7 +58,7 @@ export function getGZD(latitude, longitude) {
     const mgrsRef = utmCoordsObj.toMgrs();
     return mgrsRef.zone + mgrsRef.band;
   }
-  return NaN;
+  return undefined;
 }
 
 /*
@@ -75,7 +75,7 @@ export function getHemisphere(latitude, longitude) {
       return -1;
     }
   }
-  return NaN;
+  return undefined;
 }
 
 /*
